@@ -29,8 +29,7 @@ def new_store():
     if form.validate_on_submit():
         new_store = GroceryStore(
             title=form.title.data,
-            address=form.address.data,
-            items=form.items.data
+            address=form.address.data
         )
         db.session.add(new_store)
         db.session.commit()
@@ -53,7 +52,6 @@ def new_item():
             price=form.price.data,
             category=form.category.data,
             photo_url=form.photo_url.data,
-            store_id=form.store_id.data,
             store=form.store.data
         )
         db.session.add(new_item)
@@ -98,7 +96,6 @@ def item_detail(item_id):
         item.price = form.price.data
         item.category = form.category.data
         item.photo_url = form.photo_url.data
-        item.store_id = form.store_id.data
         item.store = form.store.data
         db.session.commit()
 

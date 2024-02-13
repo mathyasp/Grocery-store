@@ -48,5 +48,5 @@ class GroceryItemForm(FlaskForm):
             DataRequired(),
             Length(min=3, max=200, message="Your message needs to be between 3 and 200 characters long.")
         ])
-    store = QuerySelectField('Store', query_factory=lambda: GroceryStore.query)
+    store = QuerySelectField('Store', query_factory=lambda: GroceryStore.query, allow_blank=False)
     submit = SubmitField('Submit') 
