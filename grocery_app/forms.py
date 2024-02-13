@@ -43,10 +43,10 @@ class GroceryItemForm(FlaskForm):
             DataRequired()
         ])
     category = SelectField('Category', choices=ItemCategory.choices())
-    photo_url = StringField('Address',
+    photo_url = StringField('Photo URL',
         validators=[
             DataRequired(),
             Length(min=3, max=200, message="Your message needs to be between 3 and 200 characters long.")
         ])
-    store = QuerySelectField('Store', query_factory=lambda: GroceryStore.query, allow_blank=False)
+    store = QuerySelectField('Store', query_factory=lambda: GroceryStore.query.all(), get_label='title')
     submit = SubmitField('Submit') 
